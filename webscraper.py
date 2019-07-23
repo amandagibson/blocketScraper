@@ -1,5 +1,6 @@
 from bs4 import BeautifulSoup
 import requests
+import json
 
 url = 'https://www.blocket.se/goteborg?ca=15'
 response = requests.get(url)
@@ -14,4 +15,6 @@ for advert in content.findAll('article', attrs={"itemtype": "http://schema.org/O
     # "description": advert.find('a', attrs={"title": }),
     # "photos_url": advert.find('', attrs{})
   }
-print(advertObject)
+  advertArr.append(advertObject)
+with open('blocketData.json', 'w') as outfile:
+  json.dump(advertArr, outfile)
