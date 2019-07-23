@@ -5,6 +5,7 @@ url = 'https://www.blocket.se/goteborg?ca=15'
 response = requests.get(url)
 content = BeautifulSoup(response.content, "html.parser")
 
+# to print a single 'price'
 # prices = content.find('p', attrs={'class': 'list_price font-large'})
 
 # print(prices)
