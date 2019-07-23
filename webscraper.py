@@ -5,6 +5,9 @@ url = 'https://www.blocket.se/goteborg?ca=15'
 response = requests.get(url)
 content = BeautifulSoup(response.content, "html.parser")
 
-advertismentList = content.find_all('article', attrs={'class': 'media item_row ptm pbm nmt'})
+# prices = content.find('p', attrs={'class': 'list_price font-large'})
 
-print(advertismentList)
+# print(prices)
+
+for prices in content.findAll('p', attrs={'class': 'list_price font-large'}):
+  print(prices.text.encode('utf-8'))
